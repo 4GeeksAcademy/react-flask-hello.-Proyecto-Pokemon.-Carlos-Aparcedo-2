@@ -1,54 +1,92 @@
+import { element } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			favoritos: [],
+			// pokemonabilities: [],
+			// pokemoncharacteristics: [],
+			// pokemonnatures: [],
+			// pokemon: [],
+			// pokemoncolors: [],
+			// pokemonhabitats: [],
+			// pokemonspecies: [],
+			pokemontypes: [],
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
-			},
-			changeColor: (index, color) => {
-				//get the store
+			addFavoritos: (item) => {
 				const store = getStore();
+				if (store.favoritos.includes(item)) {
+					alert("Ya has agregado este item a favoritos");
+					return
+				}
+				const updatedFavoritos = [...store.favoritos, item];
+				setStore({ favoritos: updatedFavoritos });
+			},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			deleteFavoritos: (item) => {
+				const store = getStore();
+				const updatedFavoritos = store.favoritos.filter((fav) => fav !== item);
+				setStore({ favoritos: updatedFavoritos });
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			// getPokemonAbilities: () => {
+			// 	fetch("https://pokeapi.co/api/v2/ability/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemonabilities: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			// getPokemonCharacteristics: () => {
+			// 	fetch("https://pokeapi.co/api/v2/characteristic/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemoncharacteristics: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			// getPokemonNatures: () => {
+			// 	fetch("https://pokeapi.co/api/v2/nature/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemonnatures: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			// getPokemon: () => {
+			// 	fetch("https://pokeapi.co/api/v2/pokemon/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemon: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			// getPokemonColors: () => {
+			// 	fetch("https://pokeapi.co/api/v2/pokemon-color/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemoncolors: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			// getPokemonHabitats: () => {
+			// 	fetch("https://pokeapi.co/api/v2/pokemon-habitat/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemonhabitats: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			// getPokemonSpecies: () => {
+			// 	fetch("https://pokeapi.co/api/v2/pokemon-species/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemonspecies: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
+
+			getPokemonTypes: () => {
+				fetch("https://pokeapi.co/api/v2/type/")
+					.then(res => res.json())
+					.then(data => setStore({ pokemontypes: data.results }))
+					.catch(error => console.error(error))
+			},
 		}
-	};
-};
-
+	}
+}
 export default getState;
