@@ -4,14 +4,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			favoritos: [],
+			pokemon: [],
+			detallespokemon: {},
 			// pokemonabilities: [],
 			// pokemoncharacteristics: [],
 			// pokemonnatures: [],
-			// pokemon: [],
 			// pokemoncolors: [],
 			// pokemonhabitats: [],
 			// pokemonspecies: [],
-			pokemontypes: [],
+			// pokemontypes: [],
 
 		},
 		actions: {
@@ -30,7 +31,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const updatedFavoritos = store.favoritos.filter((fav) => fav !== item);
 				setStore({ favoritos: updatedFavoritos });
 			},
+			
+			getPokemon: () => {
+				fetch("https://pokeapi.co/api/v2/pokemon/")
+					.then(res => res.json())
+					.then(data => setStore({ pokemon: data.results }))
+					.catch(error => console.error(error))
+			},
 
+			getDetalles: (url) => {
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => setStore({ detallespersonaje: data.result }))
+                    .catch(error => console.error(error))
+            },
+			
 			// getPokemonAbilities: () => {
 			// 	fetch("https://pokeapi.co/api/v2/ability/")
 			// 		.then(res => res.json())
@@ -49,13 +64,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	fetch("https://pokeapi.co/api/v2/nature/")
 			// 		.then(res => res.json())
 			// 		.then(data => setStore({ pokemonnatures: data.results }))
-			// 		.catch(error => console.error(error))
-			// },
-
-			// getPokemon: () => {
-			// 	fetch("https://pokeapi.co/api/v2/pokemon/")
-			// 		.then(res => res.json())
-			// 		.then(data => setStore({ pokemon: data.results }))
 			// 		.catch(error => console.error(error))
 			// },
 
@@ -80,12 +88,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 		.catch(error => console.error(error))
 			// },
 
-			getPokemonTypes: () => {
-				fetch("https://pokeapi.co/api/v2/type/")
-					.then(res => res.json())
-					.then(data => setStore({ pokemontypes: data.results }))
-					.catch(error => console.error(error))
-			},
+			// getPokemonTypes: () => {
+			// 	fetch("https://pokeapi.co/api/v2/type/")
+			// 		.then(res => res.json())
+			// 		.then(data => setStore({ pokemontypes: data.results }))
+			// 		.catch(error => console.error(error))
+			// },
 		}
 	}
 }

@@ -8,7 +8,7 @@ export const Navbar = () => {
         <nav className="navbar-brand navbar bg-black">
             <div className="container-fluid">
                 <Link to="/">
-                    {/* <a className=""></a> */}
+                    <a className=""></a>
                     <img className="width-img w-25" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png"/>
                 </Link>
                 <Link className="btn btn-outline-success rounded-pill px-4" to="/signin">
