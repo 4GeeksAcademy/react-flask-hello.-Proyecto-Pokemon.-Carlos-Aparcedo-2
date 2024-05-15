@@ -3,7 +3,7 @@ import { element } from "prop-types";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			favoritos: [],
+			// favoritos: [],
 			pokemon: [],
 			detallespokemon: {},
 			// pokemonabilities: [],
@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const updatedFavoritos = store.favoritos.filter((fav) => fav !== item);
 				setStore({ favoritos: updatedFavoritos });
 			},
-			
+
 			getPokemon: () => {
 				fetch("https://pokeapi.co/api/v2/pokemon/")
 					.then(res => res.json())
@@ -39,12 +39,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.error(error))
 			},
 
+			// getDetalles: (url) => {
+			//     fetch(url)
+			//         .then(res => res.json())
+			//         .then(data => setStore({detallespersonaje: data }))
+			// 		// console.log(getStore(detallespersonaje))
+			//         .catch(error => console.error(error))
+			// },
+
 			getDetalles: (url) => {
-                fetch(url)
-                    .then(res => res.json())
-                    .then(data => setStore({ detallespersonaje: data.result }))
-                    .catch(error => console.error(error))
-            },
+				fetch(url)
+					.then(res => res.json())
+					.then(data => {
+						const detallesAnteriores = getStore().detallespersonaje; // Obtener los detalles anteriores
+						const nuevosDetalles = [...detallesAnteriores, data]; // Agregar la nueva data a los detalles anteriores usando el spread operator
+						setStore({ detallespersonaje: nuevosDetalles }); // Actualizar el store con los nuevos detalles
+					})
+					.catch(error => console.error(error))
+			},
 			
 			// getPokemonAbilities: () => {
 			// 	fetch("https://pokeapi.co/api/v2/ability/")
