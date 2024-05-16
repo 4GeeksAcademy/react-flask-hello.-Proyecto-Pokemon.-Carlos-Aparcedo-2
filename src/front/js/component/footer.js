@@ -3,8 +3,8 @@ import  "../../styles/footer.css"
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center footer-bg">
-		<p> Carlos Aparcedo / Zurda13</p>
-		<div className="footer-icons">
+		<p> Atrapalos Todos</p>
+		{/* <div className="footer-icons">
 		<a href="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +51,6 @@ export const Footer = () => (
   </svg>
 </a>
 
-</div>
+</div> */}
 	</footer>
 );

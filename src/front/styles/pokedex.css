@@ -20,7 +20,7 @@ display: flex;
 .card-pkm{
 width: 100%;
 margin: 10px; 
-background-color: red;
+background-color: rgb(0, 4, 255);
 margin: 5px;
 border-radius: 5px;
 
@@ -66,16 +66,16 @@ justify-content: center;
   margin: 10px;
   border-radius: 5px;
 box-shadow: 6px 10px 5px 0px rgba(199,197,199,0.75);
-background-color: palevioletred;
+background-color: rgb(62, 252, 4);
 }
+
 .type{
   background-color:#4169E1;
   border-radius: 10px;
   margin:3px;
-  color: #FFD700;
+  color: #00fffb;
   display: inline-block;
   padding: 3px;
-  
   
 }
 .type-pokedex{

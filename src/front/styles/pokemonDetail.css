@@ -1,5 +1,5 @@
 .detail-card{
-    background-color:#28B463;
+    background-color:#ffffff;
     width:80%;
     margin:0 auto;
     margin-top: 15px;
@@ -36,7 +36,7 @@
     width: 80%;
     display: flex;
     flex-direction: column;
-    background-color: red;
+    background-color: rgb(12, 11, 11);
     justify-content: center;
     border-radius: 15px;
     margin: 0 auto;
