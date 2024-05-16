@@ -34,7 +34,7 @@ export const PokemonDetail = () => {
     }
 
     const description = pokemonSpeciesData.flavor_text_entries.find(
-        (entry) => entry.language.name === "en"
+        (entry) => entry.language.name === "es"
     ).flavor_text;
 
     return (

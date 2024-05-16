@@ -30,28 +30,28 @@ export const Pokedex = () => {
 
   useEffect(() => {
     actions.getPokemon()
-    // fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     const fetchPromises = data.results.map((item) =>
-    //       fetch(item.url).then((response) => response.json())
-    //     );
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
+      .then((response) => response.json())
+      .then((data) => {
+        const fetchPromises = data.results.map((item) =>
+          fetch(item.url).then((response) => response.json())
+        );
 
-    //     Promise.all(fetchPromises)
-    //       .then((allpokemon) => {
-    //         setPoke(allpokemon);
-    //         setTablaPokemon(allpokemon);
-    //         setLoad(false);
-    //       })
-    //       .catch((error) => {
-    //         console.error('Error fetching Pokémon data:', error);
-    //         setLoad(false);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error fetching Pokémon list:', error);
-    //     setLoad(false);
-    //   });
+        Promise.all(fetchPromises)
+          .then((allpokemon) => {
+            setPoke(allpokemon);
+            setTablaPokemon(allpokemon);
+            setLoad(false);
+          })
+          .catch((error) => {
+            console.error('Error fetching Pokémon data:', error);
+            setLoad(false);
+          });
+      })
+      .catch((error) => {
+        console.error('Error fetching Pokémon list:', error);
+        setLoad(false);
+      });
   }, []);
   
   return (

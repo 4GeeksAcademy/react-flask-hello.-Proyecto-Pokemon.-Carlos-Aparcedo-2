@@ -37,7 +37,7 @@ export const Footer = () => (
         />
       </svg>
     </a>
-	<a href="" class="custom-link">
+	<a href="" className="custom-link">
 	<svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"
