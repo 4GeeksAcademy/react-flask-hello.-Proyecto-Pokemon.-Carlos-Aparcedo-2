@@ -3,7 +3,7 @@ import  "../../styles/footer.css"
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center footer-bg">
-		<p> Atrapalos Todos</p>
+		<p> Zurda13</p>
 		{/* <div className="footer-icons">
 		<a href="">
       <svg

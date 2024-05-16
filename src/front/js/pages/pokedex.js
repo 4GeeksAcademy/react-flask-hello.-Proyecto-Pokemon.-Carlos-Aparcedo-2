@@ -6,14 +6,14 @@ import { Context } from "../store/appContext";
 
 export const Pokedex = () => {
   
-  const [result, setResult] = useState([]);
+  // const [result, setResult] = useState([]);
   const [poke, setPoke] = useState([]);
   const [load, setLoad] = useState(true);
   const [buscar, setBuscar] = useState([]);
   const [tablaPokemon, setTablaPokemon] = useState([]);
   const [busqueda, setBusqueda] = useState([]);
   const { store, actions } = useContext(Context);
-  const [mensaje,setMensaje]=useState("");
+  // const [mensaje,setMensaje]=useState("");
   
 
   const handleChange = (e) => {
