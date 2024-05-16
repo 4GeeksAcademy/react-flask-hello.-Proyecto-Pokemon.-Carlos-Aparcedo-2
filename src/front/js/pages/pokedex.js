@@ -29,64 +29,31 @@ export const Pokedex = () => {
   };
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
-      .then((response) => response.json())
-      .then((data) => {
-        const fetchPromises = data.results.map((item) =>
-          fetch(item.url).then((response) => response.json())
-        );
+    actions.getPokemon()
+    // fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     const fetchPromises = data.results.map((item) =>
+    //       fetch(item.url).then((response) => response.json())
+    //     );
 
-        Promise.all(fetchPromises)
-          .then((allpokemon) => {
-            setPoke(allpokemon);
-            setTablaPokemon(allpokemon);
-            setLoad(false);
-          })
-          .catch((error) => {
-            console.error('Error fetching Pokémon data:', error);
-            setLoad(false);
-          });
-      })
-      .catch((error) => {
-        console.error('Error fetching Pokémon list:', error);
-        setLoad(false);
-      });
+    //     Promise.all(fetchPromises)
+    //       .then((allpokemon) => {
+    //         setPoke(allpokemon);
+    //         setTablaPokemon(allpokemon);
+    //         setLoad(false);
+    //       })
+    //       .catch((error) => {
+    //         console.error('Error fetching Pokémon data:', error);
+    //         setLoad(false);
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching Pokémon list:', error);
+    //     setLoad(false);
+    //   });
   }, []);
   
-//   const handleFavoritoClick = (img) => {
-//     let fav = actions.getAuthentication();
-//     console.log(fav);
-  
-//     if (fav === true) {
-//       const token = sessionStorage.getItem("token"); 
-//   console.log(token);
-
-//   if (token) {
-//       // El usuario está autenticado, envía una solicitud al backend
-//       fetch(process.env.BACKEND_URL + "api/add_favorite", {
-//         method: 'POST',
-//         headers: {
-//           Authorization: "Bearer " + token,
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({ pokemon_id: img.id }), // Envia el ID del Pokémon
-//       })
-//         .then((response) => response.json())
-//         .then((data) => {
-//           setMensaje("Pokemon agregado con exito");
-       
-//         })
-//         .catch((error) => {
-//           console.error('Error al agregar a favoritos:', error);
-//         });
-//     } else {
-      
-//       alert("Debes iniciar sesión para agregar a favoritos.");
-      
-//     }
-//   }
-// };
-
   return (
     
     <div className="App">
@@ -118,19 +85,14 @@ export const Pokedex = () => {
                         </div>
                       </div>
                       <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Detalle del pokemon</Link>
-                      {/* Agregar a Favoritos */}
-                      {/* {store.isAuthenticated ? (
-                        <button className="btn button-favourites" onClick={() => handleFavoritoClick(img)}>Agregar a favoritos</button>
-                      ) : (
-                        <p>Debes iniciar sesión para agregar a favoritos</p>
-                      )} */}
+                      
                     </div>
                   </div>
                 </div>
               </div>
             ))
           ) : (
-            poke.map((img, i) => (
+            store.pokemon?.map((img, i) => (
               <div className="row columna " key={img.id}>
                 <div className="card-pkm">
                   <div className="center-that" id={img.id}>
@@ -151,13 +113,7 @@ export const Pokedex = () => {
                         </div>
                       </div>
                       <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Detalle del pokemon</Link>
-                      {/* Agregar a Favoritos */}
-                      {/* {store.auth ? (
-                        <button className="btn button-favourites" onClick={() => handleFavoritoClick(img)}>Agregar a favoritos</button>
-                      ) : (
-                        <p>Debes iniciar sesión para agregar a favoritos</p>
-                      )} */}
-                      {/* <div>{mensaje}</div> */}
+                      
                     </div>
                   </div>
                 </div>

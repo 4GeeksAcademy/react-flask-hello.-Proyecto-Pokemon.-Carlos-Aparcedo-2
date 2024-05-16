@@ -33,10 +33,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getPokemon: () => {
-				fetch("https://pokeapi.co/api/v2/pokemon/")
-					.then(res => res.json())
-					.then(data => setStore({ pokemon: data.results }))
-					.catch(error => console.error(error))
+				fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
+					.then((response) => response.json())
+					.then((data) => {
+						const fetchPromises = data.results.map((item) =>
+							fetch(item.url).then((response) => response.json())
+						);
+
+						Promise.all(fetchPromises)
+							.then((allpokemon) => {
+								// setPoke(allpokemon);
+								// setTablaPokemon(allpokemon);
+								// setLoad(false);
+								setStore ({ pokemon: allpokemon });
+							})
+							.catch((error) => {
+								console.error('Error fetching Pokémon data:', error);
+								setLoad(false);
+							});
+					})
+					.catch((error) => {
+						console.error('Error fetching Pokémon list:', error);
+						setLoad(false);
+					});
 			},
 
 			// getDetalles: (url) => {
@@ -57,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.error(error))
 			},
-			
+
 			// getPokemonAbilities: () => {
 			// 	fetch("https://pokeapi.co/api/v2/ability/")
 			// 		.then(res => res.json())
