@@ -1,39 +1,44 @@
 .detail-card{
     background-color:#ffffff;
-    width:80%;
+    width:60%;
     margin:0 auto;
     margin-top: 15px;
     margin-bottom: 15px;
     border-radius: 30px;
     padding:20px ;
 }
+
 .detail-name-id{
     display: flex;
     justify-content: center;
     text-transform: uppercase;
     margin-top: 10px;
-
 }
+
 .id-detail{
     margin-right: 10px;
     margin-top: 15px;
 }
+
 .type-details{
     text-align: center;
-
 }
+
 .name-detail{
     margin-top: 12px;
 }
+
 .center-img{
     display: flex;
     justify-content: center;
 }
+
 .img-detail{
     margin: 0 auto;
 }
+
 .description-details{
-    width: 80%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     background-color: rgb(12, 11, 11);
@@ -43,14 +48,16 @@
     color: aliceblue;
     padding: 10px;
 }
+
 .details-stats{
     display: flex;
     flex-direction: row;
     padding: 5px;
     justify-content: center;
 }
+
 .habitat-box{
-    background-color:#4169E1 ;
+    background-color:#000000 ;
     display: flex;
     justify-content: center;
     color: aliceblue;
@@ -61,7 +68,12 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .habitat-details{
     text-align: center;
     margin-top: 15px;
+}
+
+.text{
+    background-color: red;
 }

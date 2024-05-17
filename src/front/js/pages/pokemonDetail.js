@@ -32,9 +32,9 @@ export const PokemonDetail = () => {
     if (!pokemonData || !pokemonSpeciesData) {
         return <p>Loading...</p>;
     }
-
+    // la "es" significa español pero se puede cambiar a ingles "en"
     const description = pokemonSpeciesData.flavor_text_entries.find(
-        (entry) => entry.language.name === "es"
+        (entry) => entry.language.name === "en"
     ).flavor_text;
 
     return (
@@ -46,24 +46,25 @@ export const PokemonDetail = () => {
             <div className="center-img">
             <img className="img-detail" src={pokemonData.sprites.front_default} alt={pokemonData.name} />
             </div>
-            <h3 className="type-details">Type</h3>
+            <h4 className="type-details">Type</h4>
             <ul className="type-pokedex">
                 {pokemonData.types.map((type) => (
                     <li className="type-box" key={type.slot}>{type.type.name}</li>
                 ))}
             </ul>
-            <h3 className="type-details">Abilities</h3>
+            <h4 className="type-details">Abilities</h4>
             <ul className="type-pokedex">
                 {pokemonData.abilities.map((ability) => (
                     <li className="type-box" key={ability.slot}>{ability.ability.name}</li>
                 ))}
             </ul>
             <div className="details-stats">
-            <h3 className="type-box">Height: {pokemonData.height / 10}m</h3>
-            <h3 className="type-box">Weight: {pokemonData.weight / 10}kg</h3>
+            <h4 className="type-box">Height: {pokemonData.height / 10}m</h4>
+            <h4 className="type-box">Weight: {pokemonData.weight / 10}kg</h4>
+        
             </div>
             <div className="description-details">
-            <h3>Description: </h3>
+            <h4>Description: </h4>
             <p>{description}</p>
             </div>
           

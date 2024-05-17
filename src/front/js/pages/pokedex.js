@@ -57,15 +57,14 @@ export const Pokedex = () => {
   return (
     
     <div className="App">
-      
-      <div className='pokegallery'>
-        <input className="form-control inputBuscar" value={busqueda} placeholder="¿Qué Pokémon buscas?" onChange={handleChange}/>
+      <div className="pokegallery">
+        <input className="form-control inputBuscar" value={busqueda} placeholder="¿Cual es el Nombre del Pokémon que Buscas?" onChange={handleChange}/>
         {load ? (
           <p>Loading...</p>
         ) : (
           buscar.length > 0 ? ( 
             buscar.map((img, i) => (
-              <div className="row columna " key={img.id}>
+              <div className="row columna" key={img.id}>
                 <div className="card-pkm">
                   <div className="center-that" id={img.id}>
                     <img src={img.sprites.front_default} alt='pokemon' />
@@ -84,8 +83,7 @@ export const Pokedex = () => {
                           ))}
                         </div>
                       </div>
-                      <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Detalle del pokemon</Link>
-                      
+                      <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Who is this Pokémon?</Link>
                     </div>
                   </div>
                 </div>
@@ -112,8 +110,7 @@ export const Pokedex = () => {
                           ))}
                         </div>
                       </div>
-                      <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Detalle del pokemon</Link>
-                      
+                      <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Who is this Pokémon?</Link>
                     </div>
                   </div>
                 </div>
