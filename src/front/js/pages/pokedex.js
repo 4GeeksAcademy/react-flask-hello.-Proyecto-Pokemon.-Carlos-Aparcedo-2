@@ -5,7 +5,7 @@ import "../../styles/pokedex.css";
 import { Context } from "../store/appContext";
 
 export const Pokedex = () => {
-  
+
   // const [result, setResult] = useState([]);
   const [poke, setPoke] = useState([]);
   const [load, setLoad] = useState(true);
@@ -14,7 +14,7 @@ export const Pokedex = () => {
   const [busqueda, setBusqueda] = useState([]);
   const { store, actions } = useContext(Context);
   // const [mensaje,setMensaje]=useState("");
-  
+
 
   const handleChange = (e) => {
     setBusqueda(e.target.value);
@@ -53,16 +53,16 @@ export const Pokedex = () => {
         setLoad(false);
       });
   }, []);
-  
+
   return (
-    
+
     <div className="App">
       <div className="pokegallery">
-        <input className="form-control inputBuscar" value={busqueda} placeholder="¿Cual es el Nombre del Pokémon que Buscas?" onChange={handleChange}/>
+        <input className="form-control inputBuscar" value={busqueda} placeholder="What pokemon will you catch Today" onChange={handleChange} />
         {load ? (
           <p>Loading...</p>
         ) : (
-          buscar.length > 0 ? ( 
+          buscar.length > 0 ? (
             buscar.map((img, i) => (
               <div className="row columna" key={img.id}>
                 <div className="card-pkm">
@@ -83,7 +83,7 @@ export const Pokedex = () => {
                           ))}
                         </div>
                       </div>
-                      <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Who is this Pokémon?</Link>
+                      <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill px-4">Who is this Pokémon?</Link>
                     </div>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export const Pokedex = () => {
                           ))}
                         </div>
                       </div>
-                      <Link to={`/pokedex/${img.id}`} className="detalle-pokedex">Who is this Pokémon?</Link>
+                      <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill px-4">Who is this Pokémon?</Link>
                     </div>
                   </div>
                 </div>
