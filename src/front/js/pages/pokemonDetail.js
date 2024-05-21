@@ -68,13 +68,9 @@ export const PokemonDetail = () => {
             <p>{description}</p>
             </div>
           
-          
-              
             <h3 className="habitat-details">Habitat</h3>       
             <h3 className="habitat-box"> {pokemonSpeciesData.habitat.name}</h3>
             
-           
-           
         </div>
     );
 };

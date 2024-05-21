@@ -58,7 +58,7 @@ export const Pokedex = () => {
 
     <div className="App">
       <div className="pokegallery">
-        <input className="form-control inputBuscar" value={busqueda} placeholder="What pokemon will you catch Today" onChange={handleChange} />
+        <input className="form-control inputBuscar" value={busqueda} placeholder="What pokemon will you catch Today?" onChange={handleChange} />
         {load ? (
           <p>Loading...</p>
         ) : (
@@ -83,7 +83,7 @@ export const Pokedex = () => {
                           ))}
                         </div>
                       </div>
-                      <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill px-4">Who is this Pokémon?</Link>
+                      <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill m-1 px-2">Who is this Pokémon?</Link>
                     </div>
                   </div>
                 </div>
@@ -110,7 +110,8 @@ export const Pokedex = () => {
                           ))}
                         </div>
                       </div>
-                      <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill px-4">Who is this Pokémon?</Link>
+                      <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill m-1 px-2">Who is this Pokémon?</Link>
+                      
                     </div>
                   </div>
                 </div>

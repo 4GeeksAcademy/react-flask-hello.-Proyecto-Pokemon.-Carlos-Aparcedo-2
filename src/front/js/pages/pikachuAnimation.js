@@ -8,11 +8,15 @@ export const PikachuAnimation = () => {
       <div className='container-fluid p-4'>
         <div className='row'>
           <div className='col-6'>
-            <img src="https://media.giphy.com/media/slVWEctHZKvWU/giphy.gif" className="col-6 pikachu" alt="Pikachu Animation" />
+            {/* <img src="https://media.giphy.com/media/JgCZ2hksM1abS/giphy.gif" className="col-6 pikachu" alt="Pikachu Animation" />
           </div>
           <div className="col-6 d-flex justify-content-center align-items-center">
             <p className="text-center fw-bold p-5">Bienvenido al mundo Pokemon</p>
-            <Link to="/pokedex" className="btn btn-hazte d-flex">Hazte con todos!</Link>
+            <Link to="/pokedex" className="btn btn-hazte d-flex">Hazte con todos!</Link> */}
+            <a href="/pokedex" className="col-6 pikachu">
+              <img src="https://media.giphy.com/media/JgCZ2hksM1abS/giphy.gif" className="col-6 pikachu" alt="Pikachu Animation" />
+            </a>
+            <button className="btn btn-hazte d-flex">¡Hazte con todos!</button>
           </div>
         </div>
       </div>
