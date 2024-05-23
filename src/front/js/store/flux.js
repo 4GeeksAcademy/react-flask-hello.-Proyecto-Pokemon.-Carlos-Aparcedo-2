@@ -66,16 +66,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//         .catch(error => console.error(error))
 			// },
 
-			getDetalles: (url) => {
-				fetch(url)
-					.then(res => res.json())
-					.then(data => {
-						const detallesAnteriores = getStore().detallespersonaje; // Obtener los detalles anteriores
-						const nuevosDetalles = [...detallesAnteriores, data]; // Agregar la nueva data a los detalles anteriores usando el spread operator
-						setStore({ detallespersonaje: nuevosDetalles }); // Actualizar el store con los nuevos detalles
-					})
-					.catch(error => console.error(error))
-			},
+			// getDetalles: (url) => {
+			// 	fetch(url)
+			// 		.then(res => res.json())
+			// 		.then(data => {
+			// 			const detallesAnteriores = getStore().detallespersonaje; // Obtener los detalles anteriores
+			// 			const nuevosDetalles = [...detallesAnteriores, data]; // Agregar la nueva data a los detalles anteriores usando el spread operator
+			// 			setStore({ detallespersonaje: nuevosDetalles }); // Actualizar el store con los nuevos detalles
+			// 		})
+			// 		.catch(error => console.error(error))
+			// },
 
 			// getPokemonAbilities: () => {
 			// 	fetch("https://pokeapi.co/api/v2/ability/")

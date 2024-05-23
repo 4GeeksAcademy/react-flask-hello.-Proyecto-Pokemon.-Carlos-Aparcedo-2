@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-
 import { Link } from "react-router-dom";
 import "../../styles/pokedex.css";
 import { Context } from "../store/appContext";
@@ -84,6 +83,7 @@ export const Pokedex = () => {
                         </div>
                       </div>
                       <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill m-1 px-2">Who is this Pokémon?</Link>
+                      <button className="btn btn-outline-success rounded-pill m-1 px-2"><i class="fa fa-heart"></i></button>
                     </div>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export const Pokedex = () => {
                         </div>
                       </div>
                       <Link to={`/pokedex/${img.id}`} className="btn btn-outline-success rounded-pill m-1 px-2">Who is this Pokémon?</Link>
-                      
+                      <button className="btn btn-outline-success rounded-pill m-1 px-2"><i class="fa fa-heart"></i></button>
                     </div>
                   </div>
                 </div>

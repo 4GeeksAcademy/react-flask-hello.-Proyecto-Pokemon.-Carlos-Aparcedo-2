@@ -18,18 +18,10 @@ export const Navbar = () => {
               </Link>
               <div className="ml-auto">
                   <div className="dropdown">
-                      {/* <button className="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Favoritos {store.favoritos.length}
-                      </button> */}
+                      <button className="btn btn-outline-success rounded-pill px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Favoritos 
+                      </button>
                       <ul className="dropdown-menu dropdown-menu-end ">
-                          {/* {store.favoritos.map((element) => {
-                              return (
-                                  <li className="d-flex p-1">
-                                      <a className="dropdown-item" href="#">{element}</a>
-                                      <button className="btn btn-danger" onClick={() => actions.removeFavorites(element)}>x</button>
-                                  </li>
-                              )
-                          })} */}
                       </ul>
                   </div>
               </div>
@@ -37,3 +29,22 @@ export const Navbar = () => {
       </nav>
   );
 };;
+
+
+// <div className="ml-auto">
+//                     <div className="dropdown">
+//                         <button className="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+//                             Favoritos {store.favoritos.length}
+//                         </button>
+//                         <ul className="dropdown-menu dropdown-menu-end ">
+//                             {store.favoritos.map((element) => {
+//                                 return (
+//                                     <li className="d-flex p-1">
+//                                         <a className="dropdown-item" href="#">{element}</a>
+//                                         <button className="btn btn-danger" onClick={() => actions.removeFavorites(element)}>x</button>
+//                                     </li>
+//                                 )
+//                             })}
+//                         </ul>
+//                     </div>
+//                 </div>
